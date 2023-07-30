@@ -3,10 +3,15 @@ package chap02;
 import java.util.List;
 
 import chap02.prettyprintapple.PrettyPrintAppleOutput;
+import chap03.Fruit;
 
-public class Apple {
+public class Apple extends Fruit {
 	private int weight;
 	private Color color;
+
+	public Apple(int weight) {
+		this.weight = weight;
+	}
 
 	public int getWeight() {
 		return weight;
