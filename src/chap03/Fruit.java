@@ -3,6 +3,7 @@ package chap03;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
+import java.util.function.Predicate;
 
 import chap02.Apple;
 
@@ -18,6 +19,9 @@ public class Fruit {
 	public Fruit giveMeFruit(String fruit, Integer weight) {
 		return map.get(fruit)
 			.apply(weight);
+	}
+
+	public static void main(String[] args) {
 	}
 
 }
