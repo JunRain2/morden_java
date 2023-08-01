@@ -42,12 +42,26 @@ public class TraderMain {
 				.sorted()
 				.collect(Collectors.toList());
 
+		List<Trader> transactions3Answer =
+			transactions.stream()
+				.map(Transaction::getTrader)
+				.filter(trader -> trader.getCity().equals("Cambridge"))
+				.sorted(Comparator.comparing(Trader::getName))
+				.collect(Collectors.toList());
+
 		List<String> transactions4 =
 			transactions.stream()
 				.map(transaction -> transaction.getTrader().getName())
 				.sorted()
 				.distinct()
 				.collect(Collectors.toList());
+
+		String transactions4Answer =
+			transactions.stream()
+				.map(transaction -> transaction.getTrader().getName())
+				.sorted()
+				.distinct()
+				.collect(Collectors.joining());
 
 		boolean transactions5 =
 			transactions.stream()
@@ -56,17 +70,17 @@ public class TraderMain {
 		List<Integer> transactions6 =
 			transactions.stream()
 				.filter(transaction -> transaction.getTrader().getCity().equals("Cambridge"))
-				.map(transaction -> transaction.getValue())
+				.map(Transaction::getValue)
 				.collect(Collectors.toList());
 
 		Optional<Integer> transactions7 =
 			transactions.stream()
-				.map(transaction -> transaction.getValue())
+				.map(Transaction::getValue)
 				.reduce(Integer::max);
 
 		Optional<Integer> transactions8 =
 			transactions.stream()
-				.map(transaction -> transaction.getValue())
+				.map(Transaction::getValue)
 				.reduce(Integer::min);
 
 
